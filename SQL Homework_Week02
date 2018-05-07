@@ -101,7 +101,10 @@ INSERT INTO employee VALUES (
 );
 
 -- Insert two new records into Customer table
---****************************************************************************
+
+INSERT INTO CUSTOMER(CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL) VALUES(60, 'Tom', 'Brady', 'tombrady@nfl.com');
+INSERT INTO CUSTOMER(CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL) VALUES(61, 'Richard', 'Sherman', 'richard.sherman.com');
+
 -- Update Aaron Mitchell in Customer table to Robert Walter
 
 SELECT
