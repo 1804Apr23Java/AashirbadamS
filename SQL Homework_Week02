@@ -157,25 +157,26 @@ FROM
 WHERE
     hiredate BETWEEN '01-JUNE-2003' AND '01-MAR-2004';
 -- Delete a record in Customer table where the name is Robert Walter 
-DELETE FROM INVOICELINE WHERE INVOICEID  IN (116,342,245,61,290,50,268);
-DELETE FROM INVOICE WHERE CUSTOMERID = 32;
-delete  from customer where customerID =32;
-ROLLBACK;
-select * from customer order by lastname desc;
-select * from invoice ORDER BY CUSTOMERID DESC;
+DELETE FROM INVOICELINE
+WHERE INVOICEID =
+    (SELECT INVOICEID FROM INVOICE
+    WHERE CUSTOMERID =
+        (SELECT CUSTOMERID FROM CUSTOMER 
+        WHERE FIRSTNAME = 'Robert'
+        AND LASTNAME = 'Walter'));
 
---(There may be constraints that rely on this, find out how to resolve them).
+DELETE FROM INVOICE
+WHERE CUSTOMERID = (
+    SELECT CUSTOMERID 
+    FROM CUSTOMER 
+    WHERE FIRSTNAME = 'Robert'
+    AND LASTNAME = 'Walter');
 
-SELECT
-    *
-FROM
-    customer
-WHERE
-    firstname = 'Robert';
+DELETE
+FROM CUSTOMER
+WHERE FIRSTNAME = 'Robert'
+AND LASTNAME = 'Walter';
 
-DELETE form customer
-WHERE
-    customerid = 32;
 
 --Create a function that returns the current time.
 
