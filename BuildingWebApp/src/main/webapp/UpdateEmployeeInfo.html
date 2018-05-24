@@ -55,7 +55,7 @@
 	</form>
 
 	<script type="text/javascript">
-     document.getElementById("viewPersInfo").innerHTML = "test";
+     document.getElementById("viewPersInfo").innerHTML;
       function getPersInfo() {
           var xhr = new XMLHttpRequest();          
           xhr.open("GET", "http://localhost:8089/BuildingWebApp/ViewAllEmp", true);           
@@ -68,7 +68,8 @@
           xhr.send();
       };
 
-      window.onload = getPersInfo(); 
+      window.onload = getPersInfo();        
+      document.body.style.backgroundColor ="green";
 	
 </script>
 </body>
