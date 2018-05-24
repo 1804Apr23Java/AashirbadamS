@@ -100,18 +100,12 @@ table, th, td {
 							Are you sure you want to log-off? <br />
 						</p>
 						<div class="actionsBtns">
-							<!-- Logout Form -->
-							<form action="logoutServlet" method="get">
-								<input type="submit" id="logout" class="btn btn-default btn-primary"
+							<form action="LogoutServlet" method="get">
+								<input type="submit" class="btn btn-default btn-primary"
 									value="Logout" />
 								<button class="btn btn-default" data-dismiss="modal">Cancel</button>
-								<fieldset class="account-action">
-									<input class="btn" type="submit" name="submit" value="Login">
-									<label> <input type="checkbox" name="remember">
-										Stay signed in
-									</label>
-								</fieldset>
 							</form>
+					
 						</div>
 					</div>
 				</div>
@@ -137,6 +131,7 @@ table, th, td {
 		};
 
 		window.onload = getPersInfo();
+		
 	</script>
 		<script type="text/javascript">
 		//  document.getElementById("viewPersInfo").innerHTML = "test";
@@ -145,13 +140,13 @@ table, th, td {
 			  req.open("GET", "http://localhost:8089/BuildingWebApp/LogoutServlet", true);
 			  req.withCredentials = true;
 			  req.send();
-
-			 
 			
 		};
 
 		window.onload = logout();		
-		
+		document.body.style.backgroundColor = "grey";
+		document.body.classList.add('enlarged');
+		document.getElementById("myLink").href = "style2.css";
 		
 	</script>
 

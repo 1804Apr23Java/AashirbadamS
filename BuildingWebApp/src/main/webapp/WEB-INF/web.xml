@@ -27,8 +27,6 @@
     <url-pattern>/userInfo</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>UpdateInfoServlet</display-name>
     <servlet-name>UpdateInfoServlet</servlet-name>
     <servlet-class>com.revature.servlet.UpdateInfoServlet</servlet-class>
   </servlet>
@@ -125,12 +123,19 @@
     <url-pattern>/UpdateInfoManager</url-pattern>
   </servlet-mapping>
   <servlet>
-   
     <servlet-name>ReimburseReport</servlet-name>
     <servlet-class>com.revature.servlet.ReimburseReportperUser</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ReimburseReport</servlet-name>
     <url-pattern>/ReimburseReport</url-pattern>
+  </servlet-mapping>
+  <servlet>
+     <servlet-name>RegisterUserServlet</servlet-name>
+    <servlet-class>com.revature.servlet.RegisterUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterUserServlet</servlet-name>
+    <url-pattern>/RegisterUserServlet</url-pattern>
   </servlet-mapping>
 </web-app>

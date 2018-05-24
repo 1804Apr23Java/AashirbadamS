@@ -1,29 +1,26 @@
 package com.revature.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.revature.BackEnd.EmployeeDao;
 import com.revature.BackEnd.EmployeeDaoImpl;
 import com.revature.domain.Employee;
-import com.revature.domain.Reimburse;
 
 /**
- * Servlet implementation class ReimburseReportperUser
+ * Servlet implementation class RegisterUserServlet
  */
-public class ReimburseReportperUser extends HttpServlet {
+public class RegisterUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReimburseReportperUser() {
+    public RegisterUserServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,47 +30,41 @@ public class ReimburseReportperUser extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
+		doPost(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 	
 		HttpSession session = request.getSession();
 		response.setContentType("text/html");
-		PrintWriter pw = response.getWriter();		
-		
+		//PrintWriter pw = response.getWriter();
+
 		Employee e = new Employee();
-		ArrayList<Reimburse> data = new ArrayList<Reimburse>();
-		String username = request.getParameter("username");
-		          
-		try{  	   		
-			EmployeeDaoImpl usr = new EmployeeDaoImpl();			
-			data = usr.viewSubmittedReimburseInfo(username);
-		 for(Reimburse r :data)	
-		 {	
-			System.out.println(r.getAmount());
-			
-			pw.print("<h3> Submitted Reimbursement<h3>");
-			pw.print("<tr><td>" + "<li>" +  r.getAmount()+  r.getDescription() +r.getStatus() +"</li>"  + "</td>" );						
-			pw.print("</table>");
-		
-		}
-		}
-		catch (Exception e2) 
-		{
+
+		String uName = (String) session.getAttribute("username");
+		System.out.println(uName);
+
+		try {
+			EmployeeDao ed = new EmployeeDaoImpl();
+			String firstname = request.getParameter("firstname");
+			String lastname = request.getParameter("lastname");
+			String username = request.getParameter("username");
+			String role = request.getParameter("role");
+			String password = request.getParameter("password");
+			ed.registerUser(firstname, lastname, role,username, password);
+			response.sendRedirect("http://localhost:8089/BuildingWebApp/ViewAllEmployeePage.html");
+		} catch (Exception e2) {
 			e2.printStackTrace();
-		}  
-		          
-		finally
-		{
-			pw.close();
-		}  
+		}
 
-		pw.close();
 	}
-	}
+		
+		
+		
+	
 
-
+}

@@ -212,15 +212,15 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public String resetpassword(String username, String lastname, String password) {
+	public String resetpassword(String username, String password) {
 		// TODO Auto-generated method stub
 		PreparedStatement pstmt = null;
 		try (Connection con = ConnectionUtil.getConnectionFromFile(filename)) {
 			String sql = "UPDATE EMPLOYEE SET USER_PASSWORD = ? WHERE USERNAME_EMAIL=? ";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, username);
-			pstmt.setString(2, lastname);
-			pstmt.setString(3, password);
+			pstmt.setString(1, password);
+			pstmt.setString(2, username);
+			
 
 			pstmt.executeQuery();
 
@@ -531,16 +531,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public void updateInfoManager(Employee e, String username) {
+	public void updateInfoManager( String username, String password ) {
 		PreparedStatement pstmt = null;
 		try (Connection con = ConnectionUtil.getConnectionFromFile(filename)) {
-			String sql = "UPDATE EMPLOYEE SET FIRSTNAME =?, LASTNAME =? USER_PASSWORD =? WHERE USERNAME_EMAIL =? ";
+			String sql = "UPDATE EMPLOYEE SET USER_PASSWORD =? WHERE USERNAME_EMAIL =? ";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, e.getFirstName());
-			pstmt.setString(2, e.getLastName());
-			pstmt.setString(3, e.getPassword());
-			pstmt.setString(4, username);
-			
+			pstmt.setString(1, password);
+			pstmt.setString(2, username);
 			
 			pstmt.executeQuery();
 
@@ -557,6 +554,30 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public ArrayList<Reimburse> viewPendingReimburseperUser(String username) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void registerUser(String firstname, String lastname, String role, String username,String password) {
+		
+		PreparedStatement pstmt = null;
+		try (Connection con = ConnectionUtil.getConnectionFromFile(filename)) {			
+			String sql = "INSERT INTO EMPLOYEE(FIRSTNAME,LASTNAME,USER_ROLE,USERNAME_EMAIL,USER_PASSWORD) VALUES (?,?,?,?,?)";			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,firstname);
+			pstmt.setString(2, lastname);		
+			pstmt.setString(3, role);	
+			pstmt.setString(4, username);	
+			pstmt.setString(5, password);	
+			pstmt.executeQuery();
+
+		} catch (SQLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
 	}
 
 	/*@Override

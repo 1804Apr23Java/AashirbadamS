@@ -199,10 +199,14 @@ public class EmployeeTestCase  {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	}	
+	
+	@Test
+	public void addEmployeeTest() {
+		EmployeeDao ed = new EmployeeDaoImpl();		
+		ed.registerUser("Logan","GoldHorn","employee","logan.gold@gmail.com","test");
+		
+		
 	}
-	
-
-	
-
 
 }

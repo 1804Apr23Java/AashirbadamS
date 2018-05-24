@@ -19,7 +19,7 @@ public interface EmployeeDao {
 	
 	//public void updateInfo(Employee e);
 	public void updateInfo(Employee e,String username);
-	public String resetpassword (String username,String lastname,String password);
+	public String resetpassword (String username,String password);
 	//Reimbursement
 	public void submitReimbursement(String username, Reimburse r);
 	public ArrayList <Reimburse> viewSubmittedReimburseInfo(String username) ;
@@ -32,9 +32,11 @@ public interface EmployeeDao {
 	public ArrayList<Reimburse> viewPendingReimburseAllInfo();
 	public void approveReimburse(Reimburse r,String status, int reimbid);
 	
-	public void updateInfoManager(Employee e, String username);
+	public void updateInfoManager(String username, String password);
 	
 	public ArrayList<Reimburse> viewPendingReimburseperUser(String username);
+	
+	public void registerUser(String firstname, String lastname, String role,String username, String password);
 	
 	
 	

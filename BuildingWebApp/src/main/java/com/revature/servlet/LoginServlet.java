@@ -36,13 +36,11 @@ public class LoginServlet extends HttpServlet {
 		if (ed.login(username, password).equals("manager")) {
 			session.setAttribute("username", username);
 			session.setAttribute("problem", null);
-			session.setAttribute("role", role);			
 			response.sendRedirect("ManagerHome.html");
 
 		} else if (ed.login(username, password).equals("employee")) {
 			session.setAttribute("username", username);
 			session.setAttribute("problem", null);
-			session.setAttribute("role", role);
 			System.out.println();
 			response.sendRedirect("EmployeeHome.html");
 			

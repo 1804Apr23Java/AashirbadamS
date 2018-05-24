@@ -29,7 +29,7 @@ public class ResetPasswordServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	/**
@@ -41,24 +41,12 @@ public class ResetPasswordServlet extends HttpServlet {
 		EmployeeDaoImpl ed = new EmployeeDaoImpl();
 		HttpSession session = request.getSession();
 		response.setContentType("test/html");
-		String uName = (String) session.getAttribute("username");
 		String username = request.getParameter("username");
-	/*	String firstname = request.getParameter("firstName");
-		String lastname = request.getParameter("lastName");
-		String role = request.getParameter("Role");*/
-
-		if (e.getUsername().equals(username)) /*&& e.getFirstName().equals(firstname) && e.getLastName().equals(lastname)
-				&& e.getRole().equals(role)*/ {
-			
-			String password = request.getParameter("password");
-			
-			ed.updatepassword(username,password);
-			
-			
-		} else {
-			System.out.println("Invalid Credential");
-		}
+		String password = request.getParameter("password");
+		ed.updatepassword(username, password);
+		response.sendRedirect("index.html");		
 
 	}
 
 }
+

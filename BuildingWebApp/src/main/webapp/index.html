@@ -25,11 +25,7 @@ form {
 </head>
 
 <body style ="background-color:#804040">
-
-<div style="margin:0 auto;width:75%;text-align:left">
-    <div class="container-fluid">
-        <div class="row mh-100vh">
-            <div class="col-10 col-sm-8 col-md-6 col-lg-6 offset-1 offset-sm-2 offset-md-3 offset-lg-0 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0"
+           <div class="col-10 col-sm-8 col-md-6 col-lg-6 offset-1 offset-sm-2 offset-md-3 offset-lg-0 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0"
                 id="login-block">
                 <div class="m-auto w-lg-75 w-xl-50">
                     <h2 class="text-info font-weight-light mb-5">EatFitGo</h2>
@@ -55,9 +51,12 @@ form {
                     </p>
                 </div>
             </div>           
-        </div>
-    </div>
-  </div>
+  <script type="text/javascript">
+  	document.getElementById("login-block").style.alignSelf = "stretch";
+  	document.getElementById("myDiv").style.backgroundImage = "url('img_tree.png')"
+	document.getElementById("login-block").style.animationTimingFunction = "linear";
+  	document.getElementById("login-block").style.height = "50px";
+  </script>
 
 
 </body>
