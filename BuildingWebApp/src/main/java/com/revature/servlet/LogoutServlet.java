@@ -30,14 +30,15 @@ public class LogoutServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		System.out.println("DEBUG: Logging Out");
 
-		request.getRequestDispatcher("index.html").include(request, response);
+		//request.getRequestDispatcher("index.html").include(request, response);
 
 		HttpSession session = request.getSession();
 
 		System.out.println("Debug: Session active? - " + (session != null));
 
-		if (session != null)
+		if (session != null) {
 			session.invalidate();
+		}
 		response.sendRedirect("index.html");
 
 	}

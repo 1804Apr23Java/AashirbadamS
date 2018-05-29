@@ -58,7 +58,7 @@ public class ViewPendingReimbursment extends HttpServlet {
 		 {					
 			pw.print("<tr><td>" + r.getAmount() + "</td>" + 
 						"<td>" + r.getDescription()+ "</td>" +
-						"<td>" + r.getSubmitted()+ "</td> " );							
+						"<td>" + r.getStatus()+ "</td> " );							
 			
 			pw.print("</table>");
 		}
