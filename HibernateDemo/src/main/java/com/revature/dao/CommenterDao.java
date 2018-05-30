@@ -15,5 +15,13 @@ public interface CommenterDao {
 	public void updateCommenter(Commenter c);
 
 	public void deleteCommenter(Commenter c);
+	
+	public Commenter persistsCommenter(Commenter c);
+	
+	public List<Commenter> getAllCommenter();
+	
+	List<Commenter> getAllFilteredByW();
+	
+	public List<Commenter> orderAllByLastname();
 
 }

@@ -44,7 +44,7 @@ public class City implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "citySequence")
-	@SequenceGenerator(allocationSize = 1, name = "citiesSequence", sequenceName = "SQ_CITY_PK")
+	@SequenceGenerator(allocationSize = 1, name = "citySequence", sequenceName = "SQ_CITY_PK")
 	@Column(name = "CITY_ID")
 	private int city_Id;
 

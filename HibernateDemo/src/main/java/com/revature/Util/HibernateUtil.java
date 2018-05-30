@@ -14,9 +14,9 @@ private static SessionFactory sessionFactory;
 		
 		if (HibernateUtil.sessionFactory == null) {
 			Configuration c = new Configuration().configure(filename);
-			c.setProperty("Hibernate.connection.username", System.getenv("username_database"));
-			c.setProperty("Hibernate.connection.password", System.getenv("db_password_banking"));
-			c.setProperty("Hibernate.connection.url", System.getenv("banking2_url"));
+			/*c.setProperty("Hibernate.connection.username","username");
+			c.setProperty("Hibernate.connection.password", "password");
+			c.setProperty("Hibernate.connection.url", "url");*/
 			
 			ServiceRegistry sr = new StandardServiceRegistryBuilder().applySettings(c.getProperties()).build();
 			HibernateUtil.sessionFactory = c.buildSessionFactory(sr);

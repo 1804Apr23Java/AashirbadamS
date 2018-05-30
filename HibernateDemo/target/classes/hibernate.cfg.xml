@@ -11,7 +11,7 @@
 		<!-- this can be useful during development but very noisy in the console -->
 		<property name="hibernate.show_sql">true</property>
 		<!-- choose whether to create db or update existing ddl -->
-		<!-- update by default -->
+		<!-- update by default , we can also user update/delete -->
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		<!-- Below we need to make sure that we map the flash card per the class. -->
 		<mapping class="com.revature.beans.Commenter"></mapping>

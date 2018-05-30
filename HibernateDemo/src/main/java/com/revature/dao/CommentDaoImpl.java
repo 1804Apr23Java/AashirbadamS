@@ -23,8 +23,9 @@ public class CommentDaoImpl implements CommentDao {
 
 	@Override
 	public Comment getCommentyById(int id) {
-		// TODO Auto-generated method stub
 		return null;
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
