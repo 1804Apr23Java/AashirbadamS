@@ -1,0 +1,21 @@
+server:
+  port: 8089
+  
+endpoints:
+  beans:
+    sensitive: false
+  mappings:
+    sensitive: false
+
+spring:
+  application:
+    name: flashcard-app
+  datasource:
+    platform: oracle
+    url: jdbc:oracle:thin:@aa-database.ckzkitpjrvtz.us-east-2.rds.amazonaws.com:1521:orcl
+    username: shivam
+    password: Honda1997!
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    database: ORACLE
+    show-sql: true

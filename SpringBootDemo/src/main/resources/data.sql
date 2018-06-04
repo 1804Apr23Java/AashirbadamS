@@ -1,0 +1,1 @@
+insert into flashcard values (1,'answer1','question1');
