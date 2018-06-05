@@ -10,6 +10,12 @@ import javax.persistence.*;
 public class Flashcard implements Serializable {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	public Flashcard(int id, String question, String answer) {
 		super();
 		this.id = id;
@@ -32,7 +38,7 @@ public class Flashcard implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1897553647260794654L;
+	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="flashcardSequence")

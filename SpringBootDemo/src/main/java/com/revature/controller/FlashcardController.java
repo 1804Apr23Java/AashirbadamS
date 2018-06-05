@@ -35,8 +35,8 @@ public class FlashcardController {
 		return resp;
 	}
 	@RequestMapping(value = "/{question}", method = RequestMethod.GET)
-	public ResponseEntity<Flashcard> findFlashcardByQuestion(@PathVariable int id) {
-		ResponseEntity<Flashcard> resp = new ResponseEntity<>(fd.findFlashcardById(id), HttpStatus.OK);
+	public ResponseEntity<Flashcard> findFlashcardByQuestion(@PathVariable String question) {
+		ResponseEntity<Flashcard> resp = new ResponseEntity<>(fd.findFlashcardByQuestion(question), HttpStatus.OK);
 		return resp;
 	}
 
